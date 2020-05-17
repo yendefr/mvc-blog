@@ -19,7 +19,7 @@ class ArticlesController
     /**
      * Отображает страницу отдельно взятой статьи
      */
-    public function view(int $articleId)
+    public function view(int $articleId): void
     {
         // Объект класса Article, свойства которого заполнены данными из БД
         $article = Article::getById($articleId);
@@ -35,4 +35,19 @@ class ArticlesController
         ]);
     }
 
+    public function edit(int $articleId): void
+    {
+        $article = Article::getById($articleId);
+
+        if ($article === null)
+        {
+            $this->view->renderHtml('errors/404.php', [], 404);
+            return;
+        }
+
+        $article->setName('LalaName');
+        $article->setText('LalalalaText');
+
+        $article->save();
+    }
 }
