@@ -3,7 +3,6 @@
 namespace MyProject\Controllers;
 
 use MyProject\Models\Articles\Article;
-use MyProject\Services\Db;
 use MyProject\View\View;
 
 class ArticlesController
@@ -11,13 +10,10 @@ class ArticlesController
     /** @var View */
     private $view;
 
-    /** @var Db */
-    private $db;
 
     public function __construct()
     {
         $this->view = new View(__DIR__.'/../../../templates');
-        $this->db = new Db();
     }
 
     /**

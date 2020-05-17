@@ -8,7 +8,9 @@ class Db
 {
     private $db;
 
-    public function __construct()
+    private static $instance;
+
+    private function __construct()
     {
         $dbOptions = (require __DIR__.'/../../settings.php')['db'];
 
@@ -19,6 +21,16 @@ class Db
         );
 
         $this->db->exec('SET NAMES UTF8');
+    }
+
+    public static function getInstance(): self
+    {
+        if (self::$instance === null)
+        {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 
     public function query(string $sql, $params = [], string $className = 'stdClass'): ?array
