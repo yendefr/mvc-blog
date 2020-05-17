@@ -4,7 +4,7 @@
     <div class="sidebarHeader">Меню</div>
     <ul>
         <li><a href="www/">Главная страница</a></li>
-        <li><a href="www/about-me">Обо мне</a></li>
+        <li><a href="https://github.com/defor-dev" target="_blank">Обо мне</a></li>
     </ul>
 </td>
 </tr>

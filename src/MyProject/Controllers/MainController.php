@@ -8,7 +8,6 @@ use MyProject\View\View;
 
 class MainController
 {
-
     /** @var View */
     private $view;
 
@@ -21,6 +20,9 @@ class MainController
         $this->db = new Db();
     }
 
+    /**
+     * Отображает главную страницу со списоком статей
+     */
     public function main()
     {
         $articles = Article::findAll();

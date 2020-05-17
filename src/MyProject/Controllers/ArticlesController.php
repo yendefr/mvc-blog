@@ -4,7 +4,6 @@ namespace MyProject\Controllers;
 
 use MyProject\Models\Articles\Article;
 use MyProject\Services\Db;
-use MyProject\Models\Users\User;
 use MyProject\View\View;
 
 class ArticlesController
@@ -21,8 +20,12 @@ class ArticlesController
         $this->db = new Db();
     }
 
+    /**
+     * Отображает страницу отдельно взятой статьи
+     */
     public function view(int $articleId)
     {
+        // Объект класса Article, свойства которого заполнены данными из БД
         $article = Article::getById($articleId);
 
         if ($article === null)
