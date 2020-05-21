@@ -23,6 +23,7 @@ class Db
         $this->db->exec('SET NAMES UTF8');
     }
 
+    // Выполняет подключение к БД и возвращает объект Db, если его нет. Если есть, просто возвращает объект Db
     public static function getInstance(): self
     {
         if (self::$instance === null)
@@ -31,6 +32,11 @@ class Db
         }
 
         return self::$instance;
+    }
+
+    public function getLastInsertId(): int
+    {
+        return (int) $this->db->lastInsertId();
     }
 
     public function query(string $sql, $params = [], string $className = 'stdClass'): ?array

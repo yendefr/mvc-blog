@@ -45,7 +45,6 @@ abstract class ActiveRecordEntity
         {
             $this->insert($mappedProperties);
         }
-        var_dump($mappedProperties);
     }
 
     private function update(array $mappedProperties): void
@@ -68,7 +67,27 @@ abstract class ActiveRecordEntity
 
     private function insert(array $mappedProperties): void
     {
-        // яре яре дазе
+        $filteredProperties = array_filter($mappedProperties); // Очищаем массив от null значений
+
+        $columns = [];
+        $paramsNames = [];
+        $params2values = [];
+
+        foreach ($filteredProperties as $columnName => $value) {
+            $columns[] = '`' . $columnName . '`';
+            $paramName = ':' . $columnName;
+            $paramsNames[] = $paramName;
+            $params2values[$paramName] = $value;
+        }
+
+        $columnsViaSemicolon = implode(', ', $columns);
+        $paramsNamesViaSemicolon = implode(', ', $paramsNames);
+        $sql = 'INSERT INTO ' . static::getTableName() . ' (' . $columnsViaSemicolon . ') VALUES (' . $paramsNamesViaSemicolon . ');';
+
+        $db = Db::getInstance();
+        $db->query($sql, $params2values, static::class);
+        $this->id = $db->getLastInsertId();
+
     }
 
     // Получаем имена свойств статьи с помощью рефлексии и изменяем их для дальнейшей отправки в БД

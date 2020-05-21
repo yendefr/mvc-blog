@@ -3,6 +3,7 @@
 namespace MyProject\Controllers;
 
 use MyProject\Models\Articles\Article;
+use MyProject\Models\Users\User;
 use MyProject\View\View;
 
 class ArticlesController
@@ -35,6 +36,22 @@ class ArticlesController
         ]);
     }
 
+    public function add(): void
+    {
+        date_default_timezone_set('Asia/Tomsk');
+
+        $author = User::getById(1);
+        $article = new Article();
+        $article->setAuthor($author);
+        $article->setName('Новое имя');
+        $article->setText('Новый текст');
+        $article->setCreatedAt(date('Y-m-d H:i:s'));
+
+        $article->save();
+
+        var_dump($article);
+    }
+
     public function edit(int $articleId): void
     {
         $article = Article::getById($articleId);
@@ -45,8 +62,8 @@ class ArticlesController
             return;
         }
 
-        $article->setName('LalaName');
-        $article->setText('LalalalaText');
+        $article->setName('Изменённый заголовок');
+        $article->setText('Изменённый текст статьи');
 
         $article->save();
     }
