@@ -5,7 +5,6 @@ namespace MyProject\Controllers;
 use MyProject\Models\Articles\Article;
 use MyProject\Models\Users\User;
 use MyProject\View\View;
-use PhpMyAdmin\Header;
 
 class ArticlesController
 {
