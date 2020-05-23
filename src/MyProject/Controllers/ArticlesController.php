@@ -5,6 +5,7 @@ namespace MyProject\Controllers;
 use MyProject\Models\Articles\Article;
 use MyProject\Models\Users\User;
 use MyProject\View\View;
+use PhpMyAdmin\Header;
 
 class ArticlesController
 {
@@ -66,5 +67,13 @@ class ArticlesController
         $article->setText('Изменённый текст статьи');
 
         $article->save();
+    }
+
+    public function remove(int $articleId): void
+    {
+        $article = Article::getById($articleId);
+        $article->delete();
+
+        \header('Location: http://localhost/Blog/www/');
     }
 }

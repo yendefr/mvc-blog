@@ -90,6 +90,16 @@ abstract class ActiveRecordEntity
 
     }
 
+    public function delete(): void
+    {
+        $db = Db::getInstance();
+        $db->query(
+            'DELETE FROM `' . static::getTableName() . '` WHERE id = :id',
+            [':id' => $this->id]
+        );
+        $this->id = null;
+    }
+
     // Получаем имена свойств статьи с помощью рефлексии и изменяем их для дальнейшей отправки в БД
     private function mapPropertiesToDbFormat(): array
     {
