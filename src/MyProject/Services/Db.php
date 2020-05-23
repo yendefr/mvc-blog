@@ -4,6 +4,8 @@
 namespace MyProject\Services;
 
 
+use MyProject\Exceptions\DbException;
+
 class Db
 {
     private $db;
@@ -14,13 +16,18 @@ class Db
     {
         $dbOptions = (require __DIR__.'/../../settings.php')['db'];
 
-        $this->db = new \PDO(
-            'mysql:host='.$dbOptions['host'].';dbname='.$dbOptions['dbname'],
-            $dbOptions['user'],
-            $dbOptions['password']
-        );
+        try {
+            $this->db = new \PDO(
+                'mysql:host='.$dbOptions['host'].';dbname='.$dbOptions['dbname'],
+                $dbOptions['user'],
+                $dbOptions['password']
+            );
 
-        $this->db->exec('SET NAMES UTF8');
+            $this->db->exec('SET NAMES UTF8');
+        } catch (\PDOException $e) {
+            // Создаём исключение DbException и перехватываем его через catch(DbException) во фронт-контроллере
+            throw new DbException('Ошибка при подключении к базе данных: '.$e->getMessage());
+        }
     }
 
     // Выполняет подключение к БД и возвращает объект Db, если его нет. Если есть, просто возвращает объект Db

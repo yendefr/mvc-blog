@@ -2,6 +2,7 @@
 
 namespace MyProject\Controllers;
 
+use MyProject\Exceptions\NotFoundException;
 use MyProject\Models\Articles\Article;
 use MyProject\Models\Users\User;
 use MyProject\View\View;
@@ -27,8 +28,7 @@ class ArticlesController
 
         if ($article === null)
         {
-            $this->view->renderHtml('errors/404.php', [], 404);
-            return;
+            throw new NotFoundException();
         }
 
         $this->view->renderHtml('articles/view.php', [
@@ -58,8 +58,7 @@ class ArticlesController
 
         if ($article === null)
         {
-            $this->view->renderHtml('errors/404.php', [], 404);
-            return;
+            throw new NotFoundException();
         }
 
         $article->setName('Изменённый заголовок');
@@ -71,6 +70,12 @@ class ArticlesController
     public function remove(int $articleId): void
     {
         $article = Article::getById($articleId);
+
+        if ($article === null)
+        {
+            throw new NotFoundException();
+        }
+
         $article->delete();
 
         \header('Location: http://localhost/Blog/www/');
