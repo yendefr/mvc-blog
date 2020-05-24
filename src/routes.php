@@ -6,4 +6,5 @@ return [
     "~^articles/(\d+)/edit/?$~" => [\MyProject\Controllers\ArticlesController::class, 'edit'], # www/articles/1/edit/
     "~^add/?$~" => [\MyProject\Controllers\ArticlesController::class, 'add'], # www/articles/add/
     "~^articles/(\d+)/delete/?~" => [\MyProject\Controllers\ArticlesController::class, 'remove'], # www/articles/1/delete/
+    "~^register/?$~" => [\MyProject\Controllers\UsersController::class, 'signUp'], # www/register/
 ];
