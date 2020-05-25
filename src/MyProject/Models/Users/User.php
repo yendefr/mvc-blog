@@ -15,7 +15,7 @@ class User extends ActiveRecordEntity
     /** @var string */
     protected $email;
 
-    /** @var int */
+    /** @var bool */
     protected $isConfirmed;
 
     /** @var string */
@@ -99,6 +99,12 @@ class User extends ActiveRecordEntity
         $user->save();
 
         return $user;
+    }
+
+    public function activate(): void
+    {
+        $this->isConfirmed = True;
+        $this->save();
     }
 
     protected static function getTableName(): string
