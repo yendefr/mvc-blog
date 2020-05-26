@@ -13,6 +13,7 @@ use MyProject\Services\UsersAuthService;
 
 class UsersController extends AbstractController
 {
+    # Регистрация
     public function signUp()
     {
         if (! empty($_POST))
@@ -34,16 +35,12 @@ class UsersController extends AbstractController
                 $this->view->renderHtml('users/signUpSuccessful.php');
                 return;
             }
-
-            if ($_COOKIE['token'])
-            {
-
-            }
         }
 
         $this->view->renderHtml('users/signUp.php');
     }
 
+    # Вход в аккаунт
     public function signIn()
     {
         if (!empty($_POST)){
@@ -58,6 +55,14 @@ class UsersController extends AbstractController
             }
         }
         $this->view->renderHtml('users/signIn.php');
+    }
+
+    # Выход из аккаунта
+    public function signOut()
+    {
+        setcookie('token', '', 0, '/Blog/www/', '', false, true);
+
+        header( 'Location: /Blog/www/register');
     }
 
     public function activate(int $userId, string $activationCode)

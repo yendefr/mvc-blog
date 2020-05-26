@@ -64,10 +64,6 @@ form.main {
     margin: 0 auto;
 }
 
-form.logout {
-    border: none;
-}
-
 input {
     margin: 10px 0;
     padding: 10px;

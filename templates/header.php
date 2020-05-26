@@ -16,15 +16,9 @@
     </tr>
     <tr>
       <td colspan="2" style="text-align: left">
+          <!-- TODO: На стр. входа должно быть написано "Зарегистрироваться", на стр. регистрации - "Войти" -->
           <?= !empty($user) ? 'Вы вошли как: ' . $user->getNickname() : '<a href="www/login">Войти</a>'?> <br>
-          <?php
-            if (!empty($user))
-            {
-              echo '<form class="logout" action="www/register" method="post">';
-              echo '<button value="logout"><a href="www/register">Выйти</a></button>';
-              echo '</form>';
-            }
-          ?>
+          <?= !empty($user) ? '<a href="www/logout">Выйти</a>' : ''?>
       </td>
     </tr>
     <tr>

@@ -13,6 +13,14 @@ class ArticlesController extends AbstractController
      */
     public function view(int $articleId): void
     {
+        # Если пользователь не авторизован, он будет перенаправлен на страницу входа
+        if ($this->user === null)
+        {
+            echo 'Null';
+            header('Location: /Blog/www/login');
+            return;
+        }
+
         // Объект класса Article, свойства которого заполнены данными из БД
         $article = Article::getById($articleId);
 
