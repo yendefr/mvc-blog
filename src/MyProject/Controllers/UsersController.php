@@ -62,7 +62,7 @@ class UsersController extends AbstractController
     {
         setcookie('token', '', 0, '/Blog/www/', '', false, true);
 
-        header( 'Location: /Blog/www/register');
+        header( 'Location: /Blog/www/login');
     }
 
     public function activate(int $userId, string $activationCode)

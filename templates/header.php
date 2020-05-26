@@ -17,8 +17,22 @@
     <tr>
       <td colspan="2" style="text-align: left">
           <!-- TODO: На стр. входа должно быть написано "Зарегистрироваться", на стр. регистрации - "Войти" -->
-          <?= !empty($user) ? 'Вы вошли как: ' . $user->getNickname() : '<a href="www/login">Войти</a>'?> <br>
-          <?= !empty($user) ? '<a href="www/logout">Выйти</a>' : ''?>
+          <?php
+            if (empty($user))
+            {
+              if ($_SERVER['REQUEST_URI'] == '/Blog/www/register')
+              {
+                echo '<a href="www/login">Вход</a>';
+              } elseif ($_SERVER['REQUEST_URI'] == '/Blog/www/login')
+              {
+                echo '<a href="www/register">Регистрация</a>';
+              }
+            } else
+            {
+              echo 'Вы вошли как: ' . $user->getNickname() . '<br>';
+              echo '<a href="www/logout">Выйти</a>';
+            }
+          ?>
       </td>
     </tr>
     <tr>
