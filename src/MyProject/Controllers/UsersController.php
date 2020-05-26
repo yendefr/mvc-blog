@@ -9,18 +9,10 @@ use MyProject\Exceptions\NotFoundException;
 use MyProject\Models\Users\User;
 use MyProject\Models\Users\UserActivationService;
 use MyProject\Services\EmailSender;
-use MyProject\View\View;
+use MyProject\Services\UsersAuthService;
 
-class UsersController
+class UsersController extends AbstractController
 {
-    /** @var View */
-    private $view;
-
-    public function __construct()
-    {
-        $this->view = new View(__DIR__ . '/../../../templates');
-    }
-
     public function signUp()
     {
         if (! empty($_POST))
@@ -42,9 +34,30 @@ class UsersController
                 $this->view->renderHtml('users/signUpSuccessful.php');
                 return;
             }
+
+            if ($_COOKIE['token'])
+            {
+
+            }
         }
 
         $this->view->renderHtml('users/signUp.php');
+    }
+
+    public function signIn()
+    {
+        if (!empty($_POST)){
+            try {
+                $user = User::signIn($_POST);
+                UsersAuthService::createToken($user);
+                header('Location: /Blog/www/');
+                exit();
+            } catch (InvalidArgumentException $e) {
+                $this->view->renderHtml('users/signIn.php', ['error' => $e->getMessage()]);
+                return;
+            }
+        }
+        $this->view->renderHtml('users/signIn.php');
     }
 
     public function activate(int $userId, string $activationCode)

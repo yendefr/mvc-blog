@@ -1,10 +1,17 @@
 <?php include __DIR__ . '/../header.php'; ?>
-    <div class="signUp">
+    <div style="text-align: center;" class="signUp">
         <h1>Регистрация</h1>
         <?php if (! empty($error)): ?>
             <p class="error"><?= $error ?></p>
         <?php endif; ?>
-        <form action="www/register" method="post">
+        <?php
+          if ($user)
+          {
+              unset($user); #TODO: Нужно сделать так, чтобы при выходе из аккаунта обнулялся токен или юзер, я хз
+          }
+        ?>
+
+        <form class="main" action="www/register" method="post">
             <label>Никнейм <input type="text" name="nickname" value="<?= $_POST['nickname'] ?? '' ?>"></label>
             <br><br>
             <label>Почта <input type="text" name="email" value="<?= $_POST['email'] ?? '' ?>"></label>

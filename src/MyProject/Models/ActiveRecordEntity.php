@@ -4,6 +4,7 @@
 namespace MyProject\Models;
 
 
+use MyProject\Models\Users\User;
 use MyProject\Services\Db;
 
 abstract class ActiveRecordEntity

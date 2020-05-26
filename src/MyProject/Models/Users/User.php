@@ -46,7 +46,23 @@ class User extends ActiveRecordEntity
         return $this->email;
     }
 
-    public static function signUp(array $userData): User
+    /**
+     * @return string
+     */
+    public function getPasswordHash(): string
+    {
+        return $this->passwordHash;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthToken(): string
+    {
+        return $this->authToken;
+    }
+
+    public static function signUp(array $userData): ?User
     {
         # Валидация никнейма
         if (empty($userData['nickname']))
@@ -99,6 +115,43 @@ class User extends ActiveRecordEntity
         $user->save();
 
         return $user;
+    }
+
+    public static function signIn(array $loginData): User
+    {
+        # Проверка наличия данных полей
+        if (empty($loginData['email']))
+        {
+            throw new InvalidArgumentException('Введите почту');
+        }
+        if (empty($loginData['password']))
+        {
+            throw new InvalidArgumentException('Введите пароль');
+        }
+
+        # Проверка данных в БД
+        $user = User::findOneByColumn('email', $loginData['email']);
+        if ($user === null)
+        {
+            throw new InvalidArgumentException('Пользователя с такой почтой не существует');
+        }
+        if (! password_verify($loginData['password'], $user->getPasswordHash()))
+        {
+            throw new InvalidArgumentException('Неверный пароль');
+        }
+        if (! $user->isConfirmed){
+            throw new InvalidArgumentException('Пользователь не подтверждён');
+        }
+
+        $user->refreshAuthToken();
+        $user->save();
+
+        return $user;
+    }
+
+    private function refreshAuthToken()
+    {
+        $this->authToken = sha1(random_bytes(100)) . sha1(random_bytes(100));
     }
 
     public function activate(): void

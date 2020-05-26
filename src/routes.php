@@ -7,5 +7,6 @@ return [
     "~^add/?$~" => [\MyProject\Controllers\ArticlesController::class, 'add'], # www/articles/add/
     "~^articles/(\d+)/delete/?~" => [\MyProject\Controllers\ArticlesController::class, 'remove'], # www/articles/1/delete/
     "~^register/?$~" => [\MyProject\Controllers\UsersController::class, 'signUp'], # www/register/
+    "~^login/?$~" => [\MyProject\Controllers\UsersController::class, 'signIn'], # www/login/
     "~^users/(\d+)/activate/(.+)$~" => [\MyProject\Controllers\UsersController::class, 'activate'], # www/users/1/activate/jd834hf
 ];
