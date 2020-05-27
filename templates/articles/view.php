@@ -3,5 +3,6 @@
     <p><?= $article->getText() ?></p>
     <p>Автор: <b><?= $article->getAuthor()->getNickname() ?></b></p>
     <p>Дата создания: <b><?= $article->getCreatedAt() ?></b></p>
-    <a href="http://localhost/Blog/www/articles/<?= $article->getId() ?>/delete">Удалить запись</a>
+    <a href="/Blog/www/articles/<?= $article->getId() ?>/edit">Редактировать</a> <br>
+    <a href="/Blog/www/articles/<?= $article->getId() ?>/delete">Удалить</a>
 <?php include __DIR__ . '/../footer.php'; ?>

@@ -66,10 +66,29 @@ class ArticlesController extends AbstractController
             throw new NotFoundException();
         }
 
-        $article->setName('Изменённый заголовок');
-        $article->setText('Изменённый текст статьи');
+        if ($this->user === null)
+        {
+            throw new UnauthorizedException();
+        }
 
-        $article->save();
+        if (!empty($_POST))
+        {
+            try {
+                $article->updateFromArray($_POST);
+            } catch (InvalidArgumentException $e) {
+                $this->view->renderHtml('articles/edit.php',
+                    [
+                        'error' => $e->getMessage(),
+                        'article' => $article,
+                    ]);
+                return;
+            }
+
+            header('Location: /Blog/www/articles/' . $article->getId(), true, 302);
+            exit();
+        }
+
+        $this->view->renderHtml('articles/edit.php', ['article' => $article]);
     }
 
     public function remove(int $articleId): void
