@@ -10,6 +10,16 @@
     </ul>
 </td>
 </tr>
+<?php
+// Комментарии отображаются только на странице статьи
+$id = isset($article) ? $article->getId() : '';
+
+if ($_SERVER['REQUEST_URI'] == '/Blog/www/articles/'.$id)
+{
+    include __DIR__ . '/comments/add.php';
+    include __DIR__ . '/comments/view.php';
+}
+?>
 <tr>
     <td class="footer" colspan="2">Все права защищены (c) Мой блог</td>
 </tr>
