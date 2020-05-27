@@ -2,7 +2,9 @@
 
 namespace MyProject\Controllers;
 
+use MyProject\Exceptions\InvalidArgumentException;
 use MyProject\Exceptions\NotFoundException;
+use MyProject\Exceptions\UnauthorizedException;
 use MyProject\Models\Articles\Article;
 use MyProject\Models\Users\User;
 
@@ -13,12 +15,9 @@ class ArticlesController extends AbstractController
      */
     public function view(int $articleId): void
     {
-        # Если пользователь не авторизован, он будет перенаправлен на страницу входа
-        if ($this->user === null)
-        {
-            echo 'Null';
-            header('Location: /Blog/www/login');
-            return;
+        # Если пользователь не авторизован, он будет перенаправлен на страницу с предложением войти в аккаунт
+        if ($this->user === null) {
+            throw new UnauthorizedException();
         }
 
         // Объект класса Article, свойства которого заполнены данными из БД
@@ -38,16 +37,24 @@ class ArticlesController extends AbstractController
     {
         date_default_timezone_set('Asia/Tomsk');
 
-        $author = User::getById(1);
-        $article = new Article();
-        $article->setAuthor($author);
-        $article->setName('Новое имя');
-        $article->setText('Новый текст');
-        $article->setCreatedAt(date('Y-m-d H:i:s'));
+        if ($this->user === null) {
+            throw new UnauthorizedException();
+        }
 
-        $article->save();
+        if (!empty($_POST))
+        {
+            try {
+                $article = Article::createFromArray($_POST, $this->user);
+            } catch (InvalidArgumentException $e) {
+                $this->view->renderHtml('articles/add.php', ['error' => $e->getMessage()]);
+                return;
+            }
 
-        var_dump($article);
+            header('Location: /Blog/www/articles/' . $article->getId(), true, 302);
+            exit();
+        }
+
+        $this->view->renderHtml('articles/add.php');
     }
 
     public function edit(int $articleId): void

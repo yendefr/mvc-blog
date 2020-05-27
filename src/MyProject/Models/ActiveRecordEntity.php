@@ -119,11 +119,12 @@ abstract class ActiveRecordEntity
     
     /**
      * @return static[]
+     * Если передано true, статьи будут отображаться в порядке убывания по id (соответственно, и по дате создания)
      */
-    public static function findAll(): array
+    public static function findAll($isDesc = false): array
     {
         $db = Db::getInstance();
-        return $db->query('SELECT * FROM `'. static::getTableName() .'`;', [], static::class);
+        return $db->query('SELECT * FROM `'. static::getTableName() .'` ORDER BY id'. ($isDesc ? ' DESC' : '' .';'), [], static::class);
     }
 
     public static function findOneByColumn(string $columnName, $value): ?self

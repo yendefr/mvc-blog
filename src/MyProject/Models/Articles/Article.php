@@ -3,6 +3,7 @@
 
 namespace MyProject\Models\Articles;
 
+use MyProject\Exceptions\InvalidArgumentException;
 use MyProject\Models\ActiveRecordEntity;
 use MyProject\Models\Users\User;
 
@@ -45,6 +46,14 @@ class Article extends ActiveRecordEntity
     }
 
     /**
+     * @return string
+     */
+    public function getCreatedAt(): string
+    {
+        return $this->createdAt;
+    }
+
+    /**
      * @param string $name
      */
     public function setName(string $name): void
@@ -74,6 +83,27 @@ class Article extends ActiveRecordEntity
     public function setCreatedAt(string $createdAt): void
     {
         $this->createdAt = $createdAt;
+    }
+
+    public static function createFromArray(array $fields, User $author): Article
+    {
+        if (empty($fields['name'])) {
+            throw new InvalidArgumentException('Введите название статьи');
+        }
+        if (empty($fields['text'])) {
+            throw new InvalidArgumentException('Введите текст статьи');
+        }
+
+        $article = new Article();
+
+        $article->setAuthor($author);
+        $article->setName($fields['name']);
+        $article->setText($fields['text']);
+        $article->setCreatedAt(date('Y-m-d H:i:s'));
+
+        $article->save();
+
+        return $article;
     }
 
     protected static function getTableName(): string

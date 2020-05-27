@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Мой блог</title>
-    <base href="http://localhost/Blog/">
+    <base href="/Blog/">
     <link rel="stylesheet" href="www/styles.css">
 </head>
 <body>

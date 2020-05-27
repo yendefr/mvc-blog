@@ -18,7 +18,7 @@
             <br><br>
             <label>Пароль <input type="password" name="password" value="<?= $_POST['password'] ?? '' ?>"></label>
             <br><br>
-            <button type="submit">Зарегистрироваться</button>
+            <input type="submit" value="Зарегистрироваться" class="submit">
         </form>
     </div>
 <?php include __DIR__ . '/../footer.php'; ?>

@@ -9,7 +9,7 @@
             <br><br>
             <label>Пароль <input type="password" name="password" value="<?= $_POST['password'] ?? '' ?>"></label>
             <br><br>
-            <input type="submit" value="Войти">
+            <input type="submit" value="Войти" class="submit">
         </form>
     </div>
 <?php include __DIR__ . '/../footer.php'; ?>

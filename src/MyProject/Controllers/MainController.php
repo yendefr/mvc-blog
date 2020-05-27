@@ -2,6 +2,7 @@
 
 namespace MyProject\Controllers;
 
+use MyProject\Exceptions\UnauthorizedException;
 use MyProject\Models\Articles\Article;
 
 use MyProject\View\View;
@@ -13,15 +14,12 @@ class MainController extends AbstractController
      */
     public function main()
     {
-        # Если пользователь не авторизован, он будет перенаправлен на страницу входа
-        if ($this->user === null)
-        {
-            echo 'Null';
-            header('Location: /Blog/www/login');
-            return;
+        # Если пользователь не авторизован, он будет перенаправлен на страницу с предложением войти в аккаунт
+        if ($this->user === null) {
+            throw new UnauthorizedException();
         }
 
-        $articles = Article::findAll();
+        $articles = Article::findAll(true);
         $this->view->renderHtml('main/main.php', ['articles' => $articles]);
     }
 }

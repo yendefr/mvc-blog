@@ -68,12 +68,28 @@ input {
     margin: 10px 0;
     padding: 10px;
     border: unset;
-    border-bottom: 2px solid #e3e3e3;
+    border: 2px solid #e3e3e3;
+    border-radius: 5px;
+    outline: none;
+}
+
+textarea {
+    border: unset;
+    border: 2px solid #e3e3e3;
     border-radius: 5px;
     outline: none;
 }
 
 button {
+    padding: 10px;
+    background: #e3e3e3;
+    border: unset;
+    border-radius: 100px;
+    cursor: pointer;
+    outline: none;
+}
+
+.submit {
     padding: 10px;
     background: #e3e3e3;
     border: unset;
