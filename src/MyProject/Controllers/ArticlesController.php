@@ -35,7 +35,7 @@ class ArticlesController extends AbstractController
 
     public function add(): void
     {
-        date_default_timezone_set('Asia/Tomsk');
+        date_default_timezone_set('Europe/Moscow');
 
         if ($this->user === null) {
             throw new UnauthorizedException();
