@@ -3,11 +3,11 @@
 <?php endif; ?>
 <tr>
   <td colspan="2">
-    <form action="" method="post">
+    <form action="www/articles/<?= $article->getId() ?>/add-comment" method="post">
         <label for="text">Добавить комментарий</label><br>
         <textarea name="text" id="text" rows="5" cols="60"><?= $_POST['text'] ?? '' ?></textarea><br>
         <br>
-        <input type="submit" value="Создать" class="submit">
+        <input type="submit" value="Создать">
     </form>
   </td>
 </tr>

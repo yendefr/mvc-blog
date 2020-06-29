@@ -2,6 +2,8 @@
 
 use MyProject\View\View;
 
+date_default_timezone_set('Europe/Moscow');
+
 try {
     // Автозагрузка классов
     spl_autoload_register(function ($className)

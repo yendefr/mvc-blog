@@ -25,7 +25,7 @@ class ArticlesController extends AbstractController
         $article = Article::getById($articleId);
 
         // Массив объектов класса Comment, относящихся к данной статье
-        $comments = Comment::findAllByColumn('article_id', $articleId);
+        $comments = Comment::findAllByColumn('article_id', $articleId, true);
 
         if ($article === null)
         {
@@ -40,8 +40,6 @@ class ArticlesController extends AbstractController
 
     public function add(): void
     {
-        date_default_timezone_set('Europe/Moscow');
-
         if ($this->user === null) {
             throw new UnauthorizedException();
         }

@@ -143,11 +143,11 @@ abstract class ActiveRecordEntity
         return $result[0];
     }
 
-    public static function findAllByColumn(string $columnName, $value): ?array
+    public static function findAllByColumn(string $columnName, $value, $isDesc = false): ?array
     {
         $db = Db::getInstance();
         $result = $db->query(
-            'SELECT * FROM `'. static::getTableName() .'` WHERE `'. $columnName .'` = :value;',
+            'SELECT * FROM `'. static::getTableName() .'` WHERE `'. $columnName .'` = :value'. ' ORDER BY id' .($isDesc ? ' DESC' : '' .';') ,
             [':value' => $value],
             static::class
         );

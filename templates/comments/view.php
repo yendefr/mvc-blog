@@ -2,6 +2,7 @@
   <?php foreach ($comments as $comment): ?>
     <tr>
       <td colspan="2" rowspan="1">
+        <h3><?= $user->getNickname() ?></h3> <h4><?= $comment->getCreatedAt() ?></h4>
         <p><?= $comment->getText() ?></p>
       </td>
     </tr>
