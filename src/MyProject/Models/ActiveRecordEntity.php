@@ -143,6 +143,22 @@ abstract class ActiveRecordEntity
         return $result[0];
     }
 
+    public static function findAllByColumn(string $columnName, $value): ?array
+    {
+        $db = Db::getInstance();
+        $result = $db->query(
+            'SELECT * FROM `'. static::getTableName() .'` WHERE `'. $columnName .'` = :value;',
+            [':value' => $value],
+            static::class
+        );
+
+        if ($result === [])
+        {
+            return null;
+        }
+        return $result;
+    }
+
     abstract protected static function getTableName(): string; // если не начну писать комментарии, вскоре я повешаюсь
 
     /**

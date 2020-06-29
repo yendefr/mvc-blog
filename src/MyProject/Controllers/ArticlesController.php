@@ -6,6 +6,7 @@ use MyProject\Exceptions\InvalidArgumentException;
 use MyProject\Exceptions\NotFoundException;
 use MyProject\Exceptions\UnauthorizedException;
 use MyProject\Models\Articles\Article;
+use MyProject\Models\Comments\Comment;
 use MyProject\Models\Users\User;
 
 class ArticlesController extends AbstractController
@@ -23,6 +24,9 @@ class ArticlesController extends AbstractController
         // Объект класса Article, свойства которого заполнены данными из БД
         $article = Article::getById($articleId);
 
+        // Массив объектов класса Comment, относящихся к данной статье
+        $comments = Comment::findAllByColumn('article_id', $articleId);
+
         if ($article === null)
         {
             throw new NotFoundException();
@@ -30,6 +34,7 @@ class ArticlesController extends AbstractController
 
         $this->view->renderHtml('articles/view.php', [
             'article' => $article,
+            'comments' => $comments,
         ]);
     }
 
