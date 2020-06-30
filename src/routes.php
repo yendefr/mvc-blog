@@ -14,4 +14,5 @@ return [
     "~^users/(\d+)/activate/(.+)$~" => [\MyProject\Controllers\UsersController::class, 'activate'], # www/users/1/activate/jd834hf
 
     "~^articles/(\d+)/add-comment/?$~" => [\MyProject\Controllers\CommentsController::class, 'add'], # www/articles/1/add-comment/
+    "~^articles/(\d+)/comment/(\d+)/edit/?$~" => [\MyProject\Controllers\CommentsController::class, 'edit'], # www/articles/1/comment/1/edit
 ];

@@ -7,7 +7,7 @@
         <label for="text">Добавить комментарий</label><br>
         <textarea name="text" id="text" rows="5" cols="60"><?= $_POST['text'] ?? '' ?></textarea><br>
         <br>
-        <input type="submit" value="Создать">
+        <input type="submit" value="Создать" class="submit">
     </form>
   </td>
 </tr>

@@ -39,4 +39,47 @@ class CommentsController extends AbstractController
         header('Location: /Blog/www/articles/' . $articleId, true, 302);
         exit();
     }
+
+    public function edit($articleId, $commentId): void
+    {
+        $article = Article::getById($articleId);
+        $comment = Comment::getById($commentId);
+
+        if ($article === null) {
+            throw new NotFoundException();
+        }
+
+        if ($comment === null)
+        {
+            throw new NotFoundException();
+        }
+
+        if ($this->user === null)
+        {
+            throw new UnauthorizedException();
+        }
+
+        if (!empty($_POST))
+        {
+            try {
+                $comment->update($_POST);
+            } catch (InvalidArgumentException $e) {
+                $this->view->renderHtml('comments/edit.php',
+                    [
+                        'error' => $e->getMessage(),
+                        'comment' => $comment,
+                    ]);
+                return;
+            }
+
+            header('Location: /Blog/www/articles/' . $article->getId(), true, 302);
+            exit();
+        }
+
+        $this->view->renderHtml('comments/edit.php', [
+            'article' => $article,
+            'comment' => $comment,
+        ]);
+
+    }
 }

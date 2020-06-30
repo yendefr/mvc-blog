@@ -10,6 +10,6 @@
         <label for="text">Текст статьи</label><br>
         <textarea name="text" id="text" rows="10" cols="80"><?= $_POST['text'] ?? '' ?></textarea><br>
         <br>
-        <input type="submit" value="Создать">
+        <input type="submit" value="Создать" class="submit">
     </form>
 <?php include __DIR__ . '/../footer.php'; ?>

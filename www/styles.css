@@ -90,12 +90,7 @@ button {
 }
 
 .submit {
-    padding: 10px;
-    background: #e3e3e3;
-    border: unset;
-    border-radius: 100px;
     cursor: pointer;
-    outline: none;
 }
 
 p.error {

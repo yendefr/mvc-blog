@@ -105,6 +105,19 @@ class Comment extends ActiveRecordEntity
         return $comment;
     }
 
+    public function update($fields): Comment
+    {
+        if (empty($fields['text'])) {
+            throw new InvalidArgumentException('Введите текст комментария');
+        }
+
+        $this->setText($fields['text']);
+
+        $this->save();
+
+        return $this;
+    }
+
     protected static function getTableName(): string
     {
         return 'comments';
