@@ -15,4 +15,5 @@ return [
 
     "~^articles/(\d+)/add-comment/?$~" => [\MyProject\Controllers\CommentsController::class, 'add'], # www/articles/1/add-comment/
     "~^articles/(\d+)/comment/(\d+)/edit/?$~" => [\MyProject\Controllers\CommentsController::class, 'edit'], # www/articles/1/comment/1/edit
+    "~^articles/(\d+)/comment/(\d+)/delete/?$~" => [\MyProject\Controllers\CommentsController::class, 'remove'], # www/articles/1/comment/1/delete
 ];

@@ -7,6 +7,7 @@
 
         <?php if ($comment->getAuthor()->getId() == $user->getId()) { ?>
           <a href="/Blog/www/articles/<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/edit"><input type="submit" value="Изменить" class="submit"></a>
+          <a href="/Blog/www/articles/<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/delete"><input type="submit" value="Удалить" class="submit"></a>
         <?php } ?>
       </td>
     </tr>

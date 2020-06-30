@@ -40,7 +40,7 @@ class CommentsController extends AbstractController
         exit();
     }
 
-    public function edit($articleId, $commentId): void
+    public function edit(int $articleId, int $commentId): void
     {
         $article = Article::getById($articleId);
         $comment = Comment::getById($commentId);
@@ -81,5 +81,29 @@ class CommentsController extends AbstractController
             'comment' => $comment,
         ]);
 
+    }
+
+    public function remove(int $articleId, int $commentId): void
+    {
+        $article = Article::getById($articleId);
+        $comment = Comment::getById($commentId);
+
+        if ($article === null) {
+            throw new NotFoundException();
+        }
+
+        if ($comment === null)
+        {
+            throw new NotFoundException();
+        }
+
+        if ($this->user === null)
+        {
+            throw new UnauthorizedException();
+        }
+
+        $comment->delete();
+
+        header('Location: http://localhost/Blog/www/articles/' . $article->getId());
     }
 }
