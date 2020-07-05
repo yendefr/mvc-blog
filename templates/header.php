@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Мой блог</title>
     <base href="/Blog/">
-    <link rel="stylesheet" href="www/styles.css">
+  <link rel="shortcut icon" href="www/img/WB.svg" type="image/svg">
+  <link rel="stylesheet" href="www/css/styles.css">
 </head>
 <body>
 
