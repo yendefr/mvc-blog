@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Web Blog</title>
-  <base href="/Blog/">
-  <link rel="shortcut icon" href="www/img/WB.svg" type="image/svg">
-  <link rel="stylesheet" href="www/css/reset.css">
-  <link rel="stylesheet" href="www/css/newStyles.css">
+  <link rel="shortcut icon" href="../www/img/WB.svg" type="image/svg">
+  <link rel="stylesheet" href="../www/css/reset.css">
+  <link rel="stylesheet" href="../www/css/newStyles.css">
 </head>
 <body>
 <header class="header">
