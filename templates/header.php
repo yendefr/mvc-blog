@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Мой блог</title>
-    <base href="yendefr-blog.herokuapp.com/">
-  <link rel="shortcut icon" href="img/WB.svg" type="image/svg">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="shortcut icon" href="yendefr-blog.herokuapp.com/img/WB.svg" type="image/svg">
+  <link rel="stylesheet" href="yendefr-blog.herokuapp.com/css/styles.css">
 </head>
 <body>
 
