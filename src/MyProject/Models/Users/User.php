@@ -15,7 +15,7 @@ class User extends ActiveRecordEntity
     /** @var string */
     protected $email;
 
-    /** @var bool */
+    /** @var int */
     protected $isConfirmed;
 
     /** @var string */
@@ -109,7 +109,7 @@ class User extends ActiveRecordEntity
         $user->nickname = $userData['nickname'];
         $user->email = $userData['email'];
         $user->passwordHash = password_hash($userData['password'], PASSWORD_DEFAULT);
-        $user->isConfirmed = false;
+        $user->isConfirmed = 0;
         $user->role = 'user';
         $user->authToken = sha1(random_bytes(100)) . sha1(random_bytes(100));
         $user->save();
@@ -156,7 +156,7 @@ class User extends ActiveRecordEntity
 
     public function activate(): void
     {
-        $this->isConfirmed = True;
+        $this->isConfirmed = 1;
         $this->save();
     }
 
