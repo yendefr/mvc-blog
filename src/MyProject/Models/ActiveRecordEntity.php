@@ -75,7 +75,7 @@ abstract class ActiveRecordEntity
         $params2values = [];
 
         foreach ($filteredProperties as $columnName => $value) {
-            $columns[] = '`' . $columnName . '`';
+            $columns[] = '' . $columnName . '';
             $paramName = ':' . $columnName;
             $paramsNames[] = $paramName;
             $params2values[$paramName] = $value;
@@ -94,7 +94,7 @@ abstract class ActiveRecordEntity
     {
         $db = Db::getInstance();
         $db->query(
-            'DELETE FROM `' . static::getTableName() . '` WHERE id = :id',
+            'DELETE FROM ' . static::getTableName() . ' WHERE id = :id',
             [':id' => $this->id]
         );
         $this->id = null;
@@ -124,14 +124,14 @@ abstract class ActiveRecordEntity
     public static function findAll($isDesc = false): array
     {
         $db = Db::getInstance();
-        return $db->query('SELECT * FROM `'. static::getTableName() .'` ORDER BY id'. ($isDesc ? ' DESC' : '' .';'), [], static::class);
+        return $db->query('SELECT * FROM '. static::getTableName() .' ORDER BY id'. ($isDesc ? ' DESC' : '' .';'), [], static::class);
     }
 
     public static function findOneByColumn(string $columnName, $value): ?self
     {
         $db = Db::getInstance();
         $result = $db->query(
-            'SELECT * FROM `'. static::getTableName() .'` WHERE `'. $columnName .'` = :value LIMIT 1;',
+            'SELECT * FROM '. static::getTableName() .' WHERE '. $columnName .' = :value LIMIT 1;',
             [':value' => $value],
             static::class
         );
@@ -147,7 +147,7 @@ abstract class ActiveRecordEntity
     {
         $db = Db::getInstance();
         $result = $db->query(
-            'SELECT * FROM `'. static::getTableName() .'` WHERE `'. $columnName .'` = :value'. ' ORDER BY id' .($isDesc ? ' DESC' : '' .';') ,
+            'SELECT * FROM '. static::getTableName() .' WHERE '. $columnName .' = :value'. ' ORDER BY id' .($isDesc ? ' DESC' : '' .';') ,
             [':value' => $value],
             static::class
         );
@@ -170,7 +170,7 @@ abstract class ActiveRecordEntity
         $db = Db::getInstance();
 
         $entities = $db->query(
-            'SELECT * FROM `'. static::getTableName() .'` WHERE id = :id;',
+            'SELECT * FROM '. static::getTableName() .' WHERE id = :id;',
             [':id' => $id],
             static::class
         );
