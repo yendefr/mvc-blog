@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://yendefr-blog.herokuapp.com/css/styles.css">
 </head>
 <body>
-
 <table class="layout">
     <tr>
         <td colspan="2" class="header">
@@ -19,10 +18,10 @@
           <?php
             if (empty($user))
             {
-              if ($_SERVER['REQUEST_URI'] == 'register')
+              if ($_SERVER['REQUEST_URI'] == '/register')
               {
                 echo '<a href="login">Вход</a>';
-              } elseif ($_SERVER['REQUEST_URI'] == 'login')
+              } elseif ($_SERVER['REQUEST_URI'] == '/login')
               {
                 echo '<a href="register">Регистрация</a>';
               }

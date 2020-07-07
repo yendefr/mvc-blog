@@ -4,7 +4,6 @@
     <div class="sidebarHeader">Меню</div>
     <ul>
         <li><a href="/">Главная страница</a></li>
-        <li><a href="add" target="">Добавить статью</a></li>
       <br>
         <li><a href="https://github.com/defor-dev" target="_blank">Обо мне</a></li>
     </ul>
@@ -14,7 +13,7 @@
 // Комментарии отображаются только на странице статьи
 $id = isset($article) ? $article->getId() : '';
 
-if ($_SERVER['REQUEST_URI'] == 'articles/'.$id)
+if ($_SERVER['REQUEST_URI'] == '/articles/'.$id)
 {
     include __DIR__ . '/comments/add.php';
     include __DIR__ . '/comments/view.php';

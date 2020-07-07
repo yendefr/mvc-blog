@@ -14,8 +14,8 @@
 
   <?php if ($article->getAuthor() !== null) { ?>
     <?php if ($article->getAuthor()->getId() == $user->getId()) { ?>
-      <a href="articles/<?= $article->getId() ?>/edit">Редактировать</a> <br>
-      <a href="articles/<?= $article->getId() ?>/delete">Удалить</a>
+      <a href="<?= $article->getId() ?>/edit">Редактировать</a> <br>
+      <a href="<?= $article->getId() ?>/delete">Удалить</a>
     <?php } ?>
   <?php } ?>
 <?php include __DIR__ . '/../footer.php'; ?>
