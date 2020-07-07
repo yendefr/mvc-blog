@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Web Blog</title>
-  <link rel="shortcut icon" href="yendefr-blog.herokuapp.com/img/WB.svg" type="image/svg">
-  <link rel="stylesheet" href="yendefr-blog.herokuapp.com/css/reset.css">
-  <link rel="stylesheet" href="yendefr-blog.herokuapp.com/css/newStyles.css">
+  <link rel="shortcut icon" href="https://yendefr-blog.herokuapp.com/img/WB.svg" type="image/svg">
+  <link rel="stylesheet" href="https://yendefr-blog.herokuapp.com/css/reset.css">
+  <link rel="stylesheet" href="https://yendefr-blog.herokuapp.com/css/newStyles.css">
 </head>
 <body>
 <header class="header">
