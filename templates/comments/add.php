@@ -3,7 +3,7 @@
 <?php endif; ?>
 <tr>
   <td colspan="2">
-    <form action="articles/<?= $article->getId() ?>/add-comment" method="post">
+    <form action="<?= $article->getId() ?>/add-comment" method="post">
         <label for="text">Добавить комментарий</label><br>
         <textarea name="text" id="text" rows="5" cols="60"><?= $_POST['text'] ?? '' ?></textarea><br>
         <br>

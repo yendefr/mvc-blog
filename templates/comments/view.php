@@ -15,8 +15,8 @@
 
         <?php if ($comment->getAuthor() !== null) { ?>
           <?php if ($comment->getAuthor()->getId() == $user->getId()) { ?>
-            <a href="articles/<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/edit"><input type="submit" value="Изменить" class="submit"></a>
-            <a href="articles/<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/delete"><input type="submit" value="Удалить" class="submit"></a>
+            <a href="<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/edit"><input type="submit" value="Изменить" class="submit"></a>
+            <a href="<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/delete"><input type="submit" value="Удалить" class="submit"></a>
           <?php } ?>
         <?php } ?>
       </td>
