@@ -11,7 +11,7 @@ class UsersAuthService
     public static function createToken(User $user): void
     {
         $token = $user->getId() . ':' . $user->getAuthToken();
-        setcookie('token', $token, 0, '/Blog/www/', '', false, true);
+        setcookie('token', $token, 0, '/', '', false, true);
     }
 
     public static function getUserByToken(): ?User

@@ -19,17 +19,17 @@
           <?php
             if (empty($user))
             {
-              if ($_SERVER['REQUEST_URI'] == '/Blog/www/register')
+              if ($_SERVER['REQUEST_URI'] == 'register')
               {
-                echo '<a href="www/login">Вход</a>';
-              } elseif ($_SERVER['REQUEST_URI'] == '/Blog/www/login')
+                echo '<a href="login">Вход</a>';
+              } elseif ($_SERVER['REQUEST_URI'] == 'login')
               {
-                echo '<a href="www/register">Регистрация</a>';
+                echo '<a href="register">Регистрация</a>';
               }
             } else
             {
               echo 'Вы вошли как: ' . $user->getNickname() . '<br>';
-              echo '<a href="www/logout">Выйти</a>';
+              echo '<a href="logout">Выйти</a>';
             }
           ?>
       </td>

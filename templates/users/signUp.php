@@ -11,7 +11,7 @@
           }
         ?>
 
-        <form class="main" action="www/register" method="post">
+        <form class="main" action="register" method="post">
             <label>Никнейм <input type="text" name="nickname" value="<?= $_POST['nickname'] ?? '' ?>"></label>
             <br><br>
             <label>Почта <input type="text" name="email" value="<?= $_POST['email'] ?? '' ?>"></label>

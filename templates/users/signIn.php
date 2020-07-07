@@ -4,7 +4,7 @@
         <?php if (! empty($error)): ?>
             <p class="error"><?= $error ?></p>
         <?php endif; ?>
-        <form class="main" action="www/login" method="post">
+        <form class="main" action="login" method="post">
             <label>Email <input type="text" name="email" value="<?= $_POST['email'] ?? '' ?>"></label>
             <br><br>
             <label>Пароль <input type="password" name="password" value="<?= $_POST['password'] ?? '' ?>"></label>

@@ -13,7 +13,7 @@
 
     <div class="header__wrapper">
       <div class="header__logo">
-        <a href="www/" class="header__logo-link">
+        <a href="/" class="header__logo-link">
           Web Blog
         </a>
       </div>
@@ -21,7 +21,7 @@
       <div class="header_nav">
         <ul class="header__list">
           <li class="header__item">
-            <a href="www/add" class="header__link">Написать статью</a>
+            <a href="add" class="header__link">Написать статью</a>
           </li>
           <li class="header__item">
             <a href="" class="header__link"><?= $user->getNickname() ?></a>

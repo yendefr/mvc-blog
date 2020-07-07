@@ -6,7 +6,7 @@
       <?php foreach ($articles as $article): ?>
         <div class="article">
           <div class="article__title">
-            <a href="www/articles/<?= $article->getId() ?>" class="title"><?= $article->getName() ?></a>
+            <a href="articles/<?= $article->getId() ?>" class="title"><?= $article->getName() ?></a>
           </div>
 
           <div class="article__text">

@@ -36,7 +36,7 @@ class CommentsController extends AbstractController
             }
         }
 
-        header('Location: /Blog/www/articles/' . $articleId, true, 302);
+        header('Location: articles/' . $articleId, true, 302);
         exit();
     }
 
@@ -72,7 +72,7 @@ class CommentsController extends AbstractController
                 return;
             }
 
-            header('Location: /Blog/www/articles/' . $article->getId(), true, 302);
+            header('Location: articles/' . $article->getId(), true, 302);
             exit();
         }
 
@@ -104,6 +104,6 @@ class CommentsController extends AbstractController
 
         $comment->delete();
 
-        header('Location: http://localhost/Blog/www/articles/' . $article->getId());
+        header('Location: articles/' . $article->getId());
     }
 }
