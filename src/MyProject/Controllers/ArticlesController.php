@@ -87,7 +87,7 @@ class ArticlesController extends AbstractController
                 return;
             }
 
-            header('Location: articles/' . $article->getId(), true, 302);
+            header('Location: /articles/' . $article->getId(), true, 302);
             exit();
         }
 

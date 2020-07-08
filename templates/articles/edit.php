@@ -8,7 +8,7 @@ include __DIR__ . '/../header.php';
     <?php if (! empty($error)): ?>
       <p class="error"><?= $error ?></p>
     <?php endif; ?>
-    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+    <form action="articles/<?= $article->getId() ?>/edit" method="post">
         <label for="name">Название статьи</label><br>
         <input type="text" name="name" id="name" value="<?= $_POST['name'] ?? $article->getName() ?>" size="50"><br>
         <br>
