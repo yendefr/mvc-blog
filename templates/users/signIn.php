@@ -13,4 +13,3 @@
         </form>
     </div>
 <?php include __DIR__ . '/../footer.php'; ?>
-<?php phpinfo() ?>
