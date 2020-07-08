@@ -24,7 +24,7 @@
             <a href="add" class="header__link">Написать статью</a>
           </li>
           <li class="header__item">
-            <a href="" class="header__link"><?= $user->getNickname() ?></a>
+            <a href="/logout" class="header__link"><?= $user->getNickname() ?></a>
           </li>
         </ul>
       </div>
