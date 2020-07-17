@@ -24,10 +24,10 @@
 
                   <div class="article__buttons">
                     <div class="article__item">
-                      <a href="delete"><button class="view-article__button">Удалить</button></a>
+                      <a href="/articles/<?= $article->getId() ?>/delete"><button class="view-article__button">Удалить</button></a>
                     </div>
                     <div class="article__item">
-                      <a href="edit"><button class="view-article__button">Редактировать</button></a>
+                      <a href="/articles/<?= $article->getId() ?>/edit"><button class="view-article__button">Редактировать</button></a>
                     </div>
                   </div>
                 </div>
