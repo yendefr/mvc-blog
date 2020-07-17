@@ -116,7 +116,6 @@ p.error {
 	margin-bottom: 60px;
 }
 .article__title {
-	color: #000;
 	font-size: 36px;
 	line-height: 42px;
 	height: 80px;
@@ -133,7 +132,7 @@ a.title:hover, a.title:focus, a.title:active {
 .article__text {
 	font-size: 24px;
 	line-height: 28px;
-	min-height: 250px;
+	height: 250px;
 }
 .article__info {
 	display: flex;
@@ -248,8 +247,23 @@ a.title:hover, a.title:focus, a.title:active {
 	border-top: 1px solid #22AFFF;
 	border-bottom: 1px solid #22AFFF;
 }
-
-
+.view-article__title {
+	font-size: 36px;
+    line-height: 42px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.view-article__text {
+	font-size: 24px;
+	line-height: 28px;
+	min-height: 250px;
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
 
 
 

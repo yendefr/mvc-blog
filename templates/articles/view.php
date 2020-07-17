@@ -4,10 +4,10 @@
     <section class="view-article">
         <div class="wrapper">
             <div class="view-article__box">
-                <div class="article__title">
-                    <h1 class="article__title"><?= $article->getName() ?></h1>
+                <div class="view-article__title">
+                    <h1><?= $article->getName() ?></h1>
                 </div>
-                <div class="article__text">
+                <div class="view-article__text">
                   <span><?= $article->getText() ?></span>
                 </div>
 
