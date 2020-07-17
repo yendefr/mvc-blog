@@ -232,3 +232,28 @@ a.title:hover, a.title:focus, a.title:active {
 }
 
 /* Add Article end */
+
+
+/* View Article start */
+
+.view-article {
+	padding-top: 130px;
+	padding-bottom: 70px;
+	height: 100vh;
+}
+.view-article__box {
+	border-top: 1px solid #22AFFF;
+	border-bottom: 1px solid #22AFFF;
+}
+.view-article__title {
+	margin-top: 40px;
+	font-size: 36px;
+    line-height: 42px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* View Article end */
