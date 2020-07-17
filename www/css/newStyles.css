@@ -242,11 +242,12 @@ a.title:hover, a.title:focus, a.title:active {
 	height: 100vh;
 }
 .view-article__box {
+	padding-top: 40px;
+	padding-bottom: 40px;
 	border-top: 1px solid #22AFFF;
 	border-bottom: 1px solid #22AFFF;
 }
 .view-article__title {
-	margin-top: 40px;
 	font-size: 36px;
     line-height: 42px;
     display: flex;
