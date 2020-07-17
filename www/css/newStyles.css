@@ -270,7 +270,10 @@ a.title:hover, a.title:focus, a.title:active {
 }
 .article__buttons {
 	display: flex;
-    flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding-top: 45px;
+    font-size: 24px;
+    line-height: 28px;
 }
 
 
