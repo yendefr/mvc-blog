@@ -262,6 +262,16 @@ a.title:hover, a.title:focus, a.title:active {
     align-items: center;
     justify-content: center;
 }
+.article__bar {
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.article__buttons {
+	display: flex;
+    flex-wrap: wrap;
+}
 
 
 
