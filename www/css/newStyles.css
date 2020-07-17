@@ -132,7 +132,6 @@ a.title:hover, a.title:focus, a.title:active {
 .article__text {
 	font-size: 24px;
 	line-height: 28px;
-	height: 250px;
 }
 .article__info {
 	display: flex;
@@ -242,6 +241,7 @@ a.title:hover, a.title:focus, a.title:active {
 	height: 100vh;
 }
 .view-article__box {
+	min-height: 660px;
 	padding-top: 40px;
 	padding-bottom: 40px;
 	border-top: 1px solid #22AFFF;
@@ -256,9 +256,9 @@ a.title:hover, a.title:focus, a.title:active {
     justify-content: center;
 }
 .view-article__text {
+	margin-top: 50px;
 	font-size: 24px;
 	line-height: 28px;
-	min-height: 250px;
 	display: flex;
     flex-wrap: wrap;
     align-items: center;
