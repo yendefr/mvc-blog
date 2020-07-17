@@ -269,14 +269,17 @@ a.title:hover, a.title:focus, a.title:active {
     justify-content: space-between;
 }
 .article__buttons {
-	color: #22AFFF;
-    font-size: 18px;
-	line-height: 21px;
 	display: flex;
 	flex-wrap: wrap;
 	padding-top: 45px;
 }
 .view-article__button {
+	color: #22AFFF;
+	font-family: Helvetica;
+	font-size: 18px;
+	line-height: 21px;
+	background: #FBFBFB;
+	border: 2px solid #E3E3E3;
 	padding: 12px 7px 12px 7px;
 }
 
