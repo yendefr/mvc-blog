@@ -277,6 +277,7 @@ a.title:hover, a.title:focus, a.title:active {
 	color: #22AFFF;
 	font-family: Helvetica;
 	font-size: 18px;
+	font-weight: bold;
 	line-height: 21px;
 	background: #FBFBFB;
 	border: 2px solid #E3E3E3;
