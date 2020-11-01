@@ -1,4 +1,4 @@
-<?php include __DIR__ . '/../newHeader.php'; ?>
+<?php include __DIR__ . '/../header.php'; ?>
 
 <main>
     <section class="add-article">
@@ -30,4 +30,4 @@
     </section>
 </main>
 
-<?php include __DIR__ . '/../newFooter.php'; ?>
+<?php include __DIR__ . '/../footer.php'; ?>

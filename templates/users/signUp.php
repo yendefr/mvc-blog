@@ -1,24 +1,36 @@
 <?php include __DIR__ . '/../header.php'; ?>
-    <div style="text-align: center;" class="signUp">
-        <h1>Регистрация</h1>
+  <section class="view">
+    <div class="wrapper">
+      <div class="wrap">
+        <div class="title"><h1>Регистрация</h1></div>
+
+        <?php if ($user) { unset($user); } ?>
         <?php if (! empty($error)): ?>
             <p class="error"><?= $error ?></p>
         <?php endif; ?>
-        <?php
-          if ($user)
-          {
-              unset($user);
-          }
-        ?>
 
-        <form class="main" action="register" method="post">
-            <label>Никнейм <input type="text" name="nickname" value="<?= $_POST['nickname'] ?? '' ?>"></label>
-            <br><br>
-            <label>Почта <input type="text" name="email" value="<?= $_POST['email'] ?? '' ?>"></label>
-            <br><br>
-            <label>Пароль <input type="password" name="password" value="<?= $_POST['password'] ?? '' ?>"></label>
-            <br><br>
+        <form action="register" method="post">
+          <div class="input-form">
+            <label for="nickname" class="label">Nickname</label> <br>
+            <input type="text" name="nickname" id="nickname" value="<?= $_POST['nickname'] ?? '' ?>" class="input-field">
+          </div>
+          <div class="input-form">
+            <label for="email" class="label">Email</label> <br>
+            <input type="email" name="email" id="email" value="<?= $_POST['email'] ?? '' ?>" class="input-field">
+          </div>
+          <div class="input-form">
+            <label for="password" class="label">Пароль</label> <br>
+            <input type="password" name="password" id="password" value="<?= $_POST['password'] ?? '' ?>" class="input-field">
+          </div>
+          <div class="register__button">
             <input type="submit" value="Зарегистрироваться" class="submit">
+          </div>
         </form>
+
+        <div class="sub">
+          <p>Есть аккаунт? - <a href="login">Вход</a></p>
+        </div>
+      </div>
     </div>
+  </section>
 <?php include __DIR__ . '/../footer.php'; ?>
