@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Мой блог</title>
-    <base href="/Blog/">
-  <link rel="shortcut icon" href="www/img/WB.svg" type="image/svg">
-  <link rel="stylesheet" href="www/css/styles.css">
+  <meta charset="UTF-8">
+  <title>Web Blog</title>
+  <link rel="shortcut icon" href="https://yendefr-blog.herokuapp.com/img/WB.svg" type="image/svg">
+  <link rel="stylesheet" href="https://yendefr-blog.herokuapp.com/css/reset.css">
+  <link rel="stylesheet" href="https://yendefr-blog.herokuapp.com/css/styles.css">
 </head>
 <body>
+<header class="header">
+  <div class="wrapper">
 
-<table class="layout">
-    <tr>
-        <td colspan="2" class="header">
-            Мой блог
-        </td>
-    </tr>
-    <tr>
-      <td colspan="2" style="text-align: left">
-          <?php
-            if (empty($user))
-            {
-              if ($_SERVER['REQUEST_URI'] == '/Blog/www/register')
-              {
-                echo '<a href="www/login">Вход</a>';
-              } elseif ($_SERVER['REQUEST_URI'] == '/Blog/www/login')
-              {
-                echo '<a href="www/register">Регистрация</a>';
-              }
-            } else
-            {
-              echo 'Вы вошли как: ' . $user->getNickname() . '<br>';
-              echo '<a href="www/logout">Выйти</a>';
-            }
-          ?>
-      </td>
-    </tr>
-    <tr>
-        <td>
+    <div class="header__wrapper">
+      <div class="header__logo">
+        <a href="/" class="header__logo-link">
+          Web Blog
+        </a>
+      </div>
+
+      <div class="header_nav">
+        <ul class="header__list">
+          <li class="header__item">
+            <a href="add" class="header__link">Написать статью</a>
+          </li>
+          <li class="header__item">
+            <?php if (isset($user)): ?>
+              <a href="/logout" class="header__link"><?= $user->getNickname() ?></a>
+            <?php else:?>
+              <a href="login" class="header__link">Войти</a>
+            <?php endif;?>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</header>

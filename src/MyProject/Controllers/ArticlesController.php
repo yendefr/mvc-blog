@@ -53,7 +53,7 @@ class ArticlesController extends AbstractController
                 return;
             }
 
-            header('Location: /Blog/www/articles/' . $article->getId(), true, 302);
+            header('Location: articles/' . $article->getId(), true, 302);
             exit();
         }
 
@@ -87,7 +87,7 @@ class ArticlesController extends AbstractController
                 return;
             }
 
-            header('Location: /Blog/www/articles/' . $article->getId(), true, 302);
+            header('Location: /articles/' . $article->getId(), true, 302);
             exit();
         }
 
@@ -105,6 +105,6 @@ class ArticlesController extends AbstractController
 
         $article->delete();
 
-        \header('Location: http://localhost/Blog/www/');
+        \header('Location: /');
     }
 }

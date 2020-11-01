@@ -1,21 +1,41 @@
 <?php include __DIR__ . '/../header.php'; ?>
-  <h1><?= $article->getName() ?></h1>
-  <p><?= $article->getText() ?></p>
 
-  <p>Автор: <b><?php
-          if ($article->getAuthor() !== null) {
-            #TODO: Сделать профили пользователей и ссылки на них
-            echo "<a href='www/user/'>".$article->getAuthor()->getNickname()."</a>";
-          } else {
-            echo "Пользователь удалён";
-          }
-          ?></b></p>
-  <p>Дата создания: <b><?= $article->getCreatedAt() ?></b></p>
+<main>
+    <section class="view-article">
+        <div class="wrapper">
+            <div class="view-article__box">
+                <div class="view-article__title">
+                    <h1><?= $article->getName() ?></h1>
+                </div>
 
-  <?php if ($article->getAuthor() !== null) { ?>
-    <?php if ($article->getAuthor()->getId() == $user->getId()) { ?>
-      <a href="/Blog/www/articles/<?= $article->getId() ?>/edit">Редактировать</a> <br>
-      <a href="/Blog/www/articles/<?= $article->getId() ?>/delete">Удалить</a>
-    <?php } ?>
-  <?php } ?>
+                <div class="view-article__text">
+                  <span><?= $article->getText() ?></span>
+                </div>
+
+                <div class="article__bar">
+                  <div class="article__info">
+                    <div class="article__item">
+                      <span>Автор: </span><a href=""><?= $article->getAuthor()->getNickname() ?></a>
+                    </div>
+                    <div class="article__item">
+                      <span><?= $article->getCreatedAt() ?></span>
+                    </div>
+                  </div>
+
+                  <div class="article__buttons">
+                    <div class="article__item">
+                      <a href="/articles/<?= $article->getId() ?>/delete"><button class="view-article__button">Удалить</button></a>
+                    </div>
+                    <div class="article__item">
+                      <a href="/articles/<?= $article->getId() ?>/edit"><button class="view-article__button">Редактировать</button></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Добавить кнопки удаления/редактирования итд -->
+
+            </div>
+        </div>
+    </section>
+</main>
+
 <?php include __DIR__ . '/../footer.php'; ?>

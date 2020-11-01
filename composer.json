@@ -1,0 +1,12 @@
+{
+    "name": "defor/blog-heroku",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "defor",
+            "email": "deforworks@gmail.com"
+        }
+    ],
+    "require": {}
+}

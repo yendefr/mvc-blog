@@ -5,7 +5,7 @@
         <h3><?php
             if ($comment->getAuthor() !== null) {
               #TODO: Сделать профили пользователей и ссылки на них
-              echo "<a href='www/user/'>".$comment->getAuthor()->getNickname()."</a>";
+              echo "<a href='user/'>".$comment->getAuthor()->getNickname()."</a>";
             } else {
               echo "Пользователь удалён";
             }
@@ -15,8 +15,8 @@
 
         <?php if ($comment->getAuthor() !== null) { ?>
           <?php if ($comment->getAuthor()->getId() == $user->getId()) { ?>
-            <a href="/Blog/www/articles/<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/edit"><input type="submit" value="Изменить" class="submit"></a>
-            <a href="/Blog/www/articles/<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/delete"><input type="submit" value="Удалить" class="submit"></a>
+            <a href="<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/edit"><input type="submit" value="Изменить" class="submit"></a>
+            <a href="<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/delete"><input type="submit" value="Удалить" class="submit"></a>
           <?php } ?>
         <?php } ?>
       </td>

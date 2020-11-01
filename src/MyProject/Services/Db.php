@@ -18,7 +18,7 @@ class Db
 
         try {
             $this->db = new \PDO(
-                'mysql:host='.$dbOptions['host'].';dbname='.$dbOptions['dbname'],
+                'pgsql:host='.$dbOptions['host'].';port='.$dbOptions['port'].';dbname='.$dbOptions['dbname'],
                 $dbOptions['user'],
                 $dbOptions['password']
             );
