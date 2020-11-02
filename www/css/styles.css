@@ -133,7 +133,7 @@ p.error {
 	flex-wrap: wrap;
 }
 .header__item {
-	margin-right: 131px; 
+	margin-right: 131px;
 }
 .header__item:last-child {
 	margin-right: 0px;
@@ -184,7 +184,7 @@ a.title:hover, a.title:focus, a.title:active {
 	line-height: 28px;
 }
 .article__item {
-	margin-right: 38px; 
+	margin-right: 38px;
 }
 
 /* Body end */
@@ -209,6 +209,7 @@ a.title:hover, a.title:focus, a.title:active {
 }
 .footer__copyright {
 	color: white;
+	font-size: 18px;
 }
 
 /* Footer end */
@@ -281,7 +282,7 @@ a.title:hover, a.title:focus, a.title:active {
 .view-article {
 	padding-top: 130px;
 	padding-bottom: 70px;
-	height: 100vh;
+	min-height: 100vh;
 }
 .view-article__box {
 	padding-top: 40px;
@@ -358,3 +359,35 @@ a.title:hover, a.title:focus, a.title:active {
 }
 
 /* Register end */
+
+
+/* Comments add start */
+
+.comments__input-form {
+	justify-content: unset;
+}
+.comments__input-form > label {
+	margin-left: 0;
+}
+.comments__input-form > .submit {
+	margin-top: -20px;
+}
+.comment__textarea {
+	width: 400px;
+	height: 100px;
+}
+
+/* Comments add end */
+
+
+/* Comment start */
+
+.comment {
+	margin-top: 50px;
+	border-top: 1px solid #22AFFF;
+}
+.comment > .article__info {
+	padding-top: -30px;
+}
+
+/* Comment end */

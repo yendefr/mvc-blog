@@ -22,18 +22,21 @@
                     </div>
                   </div>
 
-                  <div class="article__buttons">
-                    <div class="article__item">
-                      <a href="/articles/<?= $article->getId() ?>/delete"><button class="view-article__button">Удалить</button></a>
+                  <?php if ($article->getAuthor()->getId() === $user->getId()): ?>
+                    <div class="article__buttons">
+                      <div class="article__item">
+                        <a href="/articles/<?= $article->getId() ?>/delete"><button class="view-article__button">Удалить</button></a>
+                      </div>
+                      <div class="article__item">
+                        <a href="/articles/<?= $article->getId() ?>/edit"><button class="view-article__button">Редактировать</button></a>
+                      </div>
                     </div>
-                    <div class="article__item">
-                      <a href="/articles/<?= $article->getId() ?>/edit"><button class="view-article__button">Редактировать</button></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Добавить кнопки удаления/редактирования итд -->
+                  <?php endif; ?>
 
+                </div>
             </div>
+          <?php include_once __DIR__ . '/../comments/add.php'; ?>
+          <?php include_once __DIR__ . '/../comments/view.php'; ?>
         </div>
     </section>
 </main>

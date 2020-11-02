@@ -5,7 +5,7 @@
   <title>Web Blog</title>
   <link rel="shortcut icon" href="https://yendefr-blog.herokuapp.com/img/WB.svg" type="image/svg">
   <link rel="stylesheet" href="https://yendefr-blog.herokuapp.com/css/reset.css">
-  <link rel="stylesheet" href="https://yendefr-blog.herokuapp.com/css/styles.css">
+  <link rel="stylesheet" href="http://localhost/BlogHeroku/www/css/styles.css">
 </head>
 <body>
 <header class="header">
