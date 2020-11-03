@@ -167,7 +167,9 @@ p.error {
 	align-items: center;
 }
 a.title {
-	color: #000;
+	color: #22AFFF;
+	margin-bottom: 15px;
+	justify-content: unset;
 }
 a.title:hover, a.title:focus, a.title:active {
 	opacity: 75%;

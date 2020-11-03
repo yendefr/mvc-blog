@@ -47,7 +47,7 @@ class UsersController extends AbstractController
             try {
                 $user = User::signIn($_POST);
                 UsersAuthService::createToken($user);
-                header('Location: /');
+                header('Location: '. (require __DIR__.'/../../settings.php')['url']);
                 exit();
             } catch (InvalidArgumentException $e) {
                 $this->view->renderHtml('users/signIn.php', ['error' => $e->getMessage()]);

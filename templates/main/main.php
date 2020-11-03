@@ -5,12 +5,24 @@
     <div class="wrapper">
       <?php foreach ($articles as $article): ?>
         <div class="article">
-          <div class="article__title">
+<!--          <div class="article__title">-->
             <a href="articles/<?= $article->getId() ?>" class="title"><?= $article->getName() ?></a>
-          </div>
+<!--          </div>-->
 
           <div class="article__text">
-            <span><?= $article->getText() ?></span>
+            <span>
+                <?php
+                  $text = $article->getText();
+                  if (strlen($text) > 700) {
+                    $text = substr($text, 0, 550);
+                    $text = explode(' ', $text);
+                    array_pop($text);
+                    echo implode(' ', $text) . '...';
+                  } else {
+                    echo $text;
+                  }
+                ?>
+            </span>
           </div>
 
           <div class="article__info">
