@@ -32,7 +32,7 @@ class UsersController extends AbstractController
                     'code' => $code,
                 ]);
 
-                $this->view->renderHtml('users/signUpSuccessful.php');
+                $this->view->renderHtml('users/signIn.php');
                 return;
             }
         }
