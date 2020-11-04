@@ -10,19 +10,7 @@
 <!--          </div>-->
 
           <div class="article__text">
-            <span>
-                <?php
-                  $text = $article->getText();
-                  if (strlen($text) > 700) {
-                    $text = substr($text, 0, 550);
-                    $text = explode(' ', $text);
-                    array_pop($text);
-                    echo implode(' ', $text) . '...';
-                  } else {
-                    echo $text;
-                  }
-                ?>
-            </span>
+            <span><?= $article->getPreview() ?></span>
           </div>
 
           <div class="article__info">

@@ -15,6 +15,9 @@ class Article extends ActiveRecordEntity
     /** @var string */
     protected $text;
 
+    /** @var string */
+    protected $preview;
+
     /** @var int */
     protected $authorId;
 
@@ -35,6 +38,14 @@ class Article extends ActiveRecordEntity
     public function getText(): string
     {
         return $this->text;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPreview(): string
+    {
+        return $this->preview;
     }
 
     /**
@@ -70,6 +81,22 @@ class Article extends ActiveRecordEntity
     }
 
     /**
+     * @param string $text
+     */
+    public function setPreview(string $text): void
+    {
+        $preview = $text;
+        if (strlen($preview) > 550) {
+            $preview = substr($preview, 0, 550);
+            $preview = explode(' ', $preview);
+            array_pop($preview);
+            $this->preview = implode(' ', $preview) . '...';
+        } else {
+            $this->preview = $text;
+        }
+    }
+
+    /**
      * @param User $author
      */
     public function setAuthor(User $author): void
@@ -99,6 +126,7 @@ class Article extends ActiveRecordEntity
         $article->setAuthor($author);
         $article->setName($fields['name']);
         $article->setText($fields['text']);
+        $article->setPreview(($fields['text']));
         $article->setCreatedAt(date('Y-m-d H:i:s'));
 
         $article->save();
@@ -118,6 +146,7 @@ class Article extends ActiveRecordEntity
 
         $this->setName($fields['name']);
         $this->setText($fields['text']);
+        $this->setPreview(($fields['text']));
 
         $this->save();
 
