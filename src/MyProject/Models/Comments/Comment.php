@@ -98,7 +98,7 @@ class Comment extends ActiveRecordEntity
         $comment->setText($fields['text']);
         $comment->setArticle($article);
         $comment->setAuthor($author);
-        $article->setCreatedAt(date('Y-m-d H:i:s'));
+        $comment->setCreatedAt(date('Y-m-d H:i:s'));
 
         $comment->save();
 

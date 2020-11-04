@@ -47,7 +47,7 @@ class UsersController extends AbstractController
             try {
                 $user = User::signIn($_POST);
                 UsersAuthService::createToken($user);
-                header('Location: '. (require __DIR__.'/../../settings.php')['url']);
+                header('Location: '. $this->url);
                 exit();
             } catch (InvalidArgumentException $e) {
                 $this->view->renderHtml('users/signIn.php', ['error' => $e->getMessage()]);
@@ -62,7 +62,7 @@ class UsersController extends AbstractController
     {
         setcookie('token', '', 0, '/', '', false, true);
 
-        header( 'Location: login');
+        header( 'Location: ' . $this->url . 'login');
     }
 
     public function activate(int $userId, string $activationCode)

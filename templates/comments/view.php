@@ -1,15 +1,18 @@
 <?php if ($comments !== null): ?>
   <?php foreach ($comments as $comment): ?>
     <div class="comment">
-      <div class="article__bar">
-        <div class="article__info">
-          <div class="article__item">
-            <span>Автор: </span><a href=""><?= $article->getAuthor()->getNickname() ?></a>
-          </div>
-          <div class="article__item">
-            <span><?= $article->getCreatedAt() ?></span>
-          </div>
+      <div class="comment__info">
+        <div class="item">
+          <a href=""><?= $comment->getAuthor()->getNickname() ?></a>
         </div>
+        <div class="item">
+          <span><?= $comment->getCreatedAt() ?></span>
+        </div>
+      </div>
+
+      <div class="comment__text">
+        <span><?= $comment->getText() ?></span>
+      </div>
     </div>
   <?php endforeach; ?>
 <?php endif ?>

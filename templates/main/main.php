@@ -5,19 +5,17 @@
     <div class="wrapper">
       <?php foreach ($articles as $article): ?>
         <div class="article">
-<!--          <div class="article__title">-->
-            <a href="articles/<?= $article->getId() ?>" class="title"><?= $article->getName() ?></a>
-<!--          </div>-->
+          <a href="articles/<?= $article->getId() ?>" class="title"><?= $article->getName() ?></a>
 
           <div class="article__text">
             <span><?= $article->getPreview() ?></span>
           </div>
 
           <div class="article__info">
-            <div class="article__item">
+            <div class="item">
               <span>Автор: </span><a href=""><?= $article->getAuthor()->getNickname() ?></a>
             </div>
-            <div class="article__item">
+            <div class="item">
               <span><?= $article->getCreatedAt() ?></span>
             </div>
           </div>

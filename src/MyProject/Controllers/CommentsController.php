@@ -36,7 +36,7 @@ class CommentsController extends AbstractController
             }
         }
 
-        header('Location: https://yendefr-blog.herokuapp.com/articles/' . $articleId, true, 302);
+        header('Location: ' . $this->url . 'articles/' . $articleId, true, 302);
         exit();
     }
 
@@ -72,7 +72,7 @@ class CommentsController extends AbstractController
                 return;
             }
 
-            header('Location: https://yendefr-blog.herokuapp.com/articles/' . $article->getId(), true, 302);
+            header('Location: ' . $this->url . 'articles/' . $article->getId(), true, 302);
             exit();
         }
 
@@ -104,6 +104,6 @@ class CommentsController extends AbstractController
 
         $comment->delete();
 
-        header('Location: https://yendefr-blog.herokuapp.com/articles/' . $article->getId());
+        header('Location: ' . $this->url . 'articles/' . $article->getId());
     }
 }

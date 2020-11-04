@@ -109,6 +109,9 @@ p.error {
 	width: 1040px;
 	margin-left: 321px;
 }
+.item {
+	margin-right: 38px;
+}
 
 /* Header start */
 
@@ -185,9 +188,6 @@ a.title:hover, a.title:focus, a.title:active {
 	font-size: 24px;
 	line-height: 28px;
 }
-.article__item {
-	margin-right: 38px;
-}
 
 /* Body end */
 
@@ -205,9 +205,6 @@ a.title:hover, a.title:focus, a.title:active {
 	padding-top: 136px;
 	font-size: 24px;
 	line-height: 28px;
-}
-.footer__link {
-
 }
 .footer__copyright {
 	color: white;
@@ -388,8 +385,19 @@ a.title:hover, a.title:focus, a.title:active {
 	margin-top: 50px;
 	border-top: 1px solid #22AFFF;
 }
-.comment > .article__info {
-	padding-top: -30px;
+.comment__info {
+	padding-top: 15px;
+	font-size: 24px;
+	line-height: 28px;
+	display: flex;
+	flex-wrap: wrap;
+}
+.comment__text {
+	margin-top: 15px;
+	font-size: 24px;
+	line-height: 28px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 /* Comment end */

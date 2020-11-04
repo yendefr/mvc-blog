@@ -14,20 +14,20 @@
 
                 <div class="article__bar">
                   <div class="article__info">
-                    <div class="article__item">
+                    <div class="item">
                       <span>Автор: </span><a href=""><?= $article->getAuthor()->getNickname() ?></a>
                     </div>
-                    <div class="article__item">
+                    <div class="item">
                       <span><?= $article->getCreatedAt() ?></span>
                     </div>
                   </div>
 
                   <?php if ($article->getAuthor()->getId() === $user->getId()): ?>
                     <div class="article__buttons">
-                      <div class="article__item">
+                      <div class="item">
                         <a href="<?= $url ?>articles/<?= $article->getId() ?>/delete"><button class="view-article__button">Удалить</button></a>
                       </div>
-                      <div class="article__item">
+                      <div class="item">
                         <a href="<?= $url ?>articles/<?= $article->getId() ?>/edit"><button class="view-article__button">Редактировать</button></a>
                       </div>
                     </div>

@@ -105,6 +105,6 @@ class ArticlesController extends AbstractController
 
         $article->delete();
 
-        \header('Location: /');
+        \header('Location: '. $this->url);
     }
 }
