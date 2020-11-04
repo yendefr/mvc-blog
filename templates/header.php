@@ -26,7 +26,7 @@
           </li>
           <li class="header__item">
             <?php if (isset($user)): ?>
-              <a href="<?= $url ?>logout" class="header__link"><?= $user->getNickname() ?></a>
+              <a href="<?= $url ?>logout" class="header__link logout"><?= $user->getNickname() ?></a>
             <?php else:?>
               <a href="<?= $url ?>login" class="header__link">Войти</a>
             <?php endif;?>

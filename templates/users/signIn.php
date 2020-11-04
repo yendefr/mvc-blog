@@ -8,7 +8,7 @@
             <p class="error"><?= $error ?></p>
           <?php endif; ?>
 
-        <form action="login" method="post">
+        <form action="<?= $url ?>login" method="post">
           <div class="input-form">
             <label for="email" class="label">Email</label> <br>
             <input type="email" name="email" id="email" value="<?= $_POST['email'] ?? '' ?>" class="input-field">
@@ -23,7 +23,7 @@
         </form>
 
         <div class="sub">
-          <p>Нет аккаунта? - <a href="register">Регистрация</a></p>
+          <p>Нет аккаунта? - <a href="<?= $url ?>register">Регистрация</a></p>
         </div>
       </div>
     </div>

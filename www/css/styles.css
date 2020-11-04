@@ -112,6 +112,9 @@ p.error {
 .item {
 	margin-right: 38px;
 }
+.logout:hover, .logout:focus, .logout:active {
+	color: #FF3D50;
+}
 
 /* Header start */
 
@@ -329,6 +332,23 @@ a.title:hover, a.title:focus, a.title:active {
 }
 
 /* View Article end */
+
+
+/* Edit Article start */
+
+.edit__button {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+.edit__button > input {
+	width: 100px;
+}
+
+/* Edit Article end */
 
 
 /* Login start */
