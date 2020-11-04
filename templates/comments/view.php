@@ -1,25 +1,18 @@
-<?php if ($comments !== null) { ?>
+<?php if ($comments !== null): ?>
   <?php foreach ($comments as $comment): ?>
-    <tr>
-      <td colspan="2" rowspan="1">
-        <h3><?php
-            if ($comment->getAuthor() !== null) {
-              #TODO: Сделать профили пользователей и ссылки на них
-              echo "<a href='user/'>".$comment->getAuthor()->getNickname()."</a>";
-            } else {
-              echo "Пользователь удалён";
-            }
-        ?></h3>
-        <h4><?= $comment->getCreatedAt() ?></h4>
-        <p><?= $comment->getText() ?></p> <br>
+    <div class="comment">
+      <div class="comment__info">
+        <div class="item">
+          <a href=""><?= $comment->getAuthor()->getNickname() ?></a>
+        </div>
+        <div class="item">
+          <span><?= $comment->getCreatedAt() ?></span>
+        </div>
+      </div>
 
-        <?php if ($comment->getAuthor() !== null) { ?>
-          <?php if ($comment->getAuthor()->getId() == $user->getId()) { ?>
-            <a href="<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/edit"><input type="submit" value="Изменить" class="submit"></a>
-            <a href="<?= $article->getId() ?>/comment/<?= $comment->getId() ?>/delete"><input type="submit" value="Удалить" class="submit"></a>
-          <?php } ?>
-        <?php } ?>
-      </td>
-    </tr>
+      <div class="comment__text">
+        <span><?= $comment->getText() ?></span>
+      </div>
+    </div>
   <?php endforeach; ?>
-<?php } ?>
+<?php endif ?>

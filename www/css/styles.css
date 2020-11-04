@@ -109,6 +109,12 @@ p.error {
 	width: 1040px;
 	margin-left: 321px;
 }
+.item {
+	margin-right: 38px;
+}
+.logout:hover, .logout:focus, .logout:active {
+	color: #FF3D50;
+}
 
 /* Header start */
 
@@ -133,7 +139,7 @@ p.error {
 	flex-wrap: wrap;
 }
 .header__item {
-	margin-right: 131px; 
+	margin-right: 131px;
 }
 .header__item:last-child {
 	margin-right: 0px;
@@ -167,7 +173,9 @@ p.error {
 	align-items: center;
 }
 a.title {
-	color: #000;
+	color: #22AFFF;
+	margin-bottom: 15px;
+	justify-content: unset;
 }
 a.title:hover, a.title:focus, a.title:active {
 	opacity: 75%;
@@ -182,9 +190,6 @@ a.title:hover, a.title:focus, a.title:active {
 	padding-top: 45px;
 	font-size: 24px;
 	line-height: 28px;
-}
-.article__item {
-	margin-right: 38px; 
 }
 
 /* Body end */
@@ -204,11 +209,9 @@ a.title:hover, a.title:focus, a.title:active {
 	font-size: 24px;
 	line-height: 28px;
 }
-.footer__link {
-
-}
 .footer__copyright {
 	color: white;
+	font-size: 18px;
 }
 
 /* Footer end */
@@ -281,7 +284,7 @@ a.title:hover, a.title:focus, a.title:active {
 .view-article {
 	padding-top: 130px;
 	padding-bottom: 70px;
-	height: 100vh;
+	min-height: 100vh;
 }
 .view-article__box {
 	padding-top: 40px;
@@ -331,6 +334,23 @@ a.title:hover, a.title:focus, a.title:active {
 /* View Article end */
 
 
+/* Edit Article start */
+
+.edit__button {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+.edit__button > input {
+	width: 100px;
+}
+
+/* Edit Article end */
+
+
 /* Login start */
 
 .login__button {
@@ -358,3 +378,46 @@ a.title:hover, a.title:focus, a.title:active {
 }
 
 /* Register end */
+
+
+/* Comments add start */
+
+.comments__input-form {
+	justify-content: unset;
+}
+.comments__input-form > label {
+	margin-left: 0;
+}
+.comments__input-form > .submit {
+	margin-top: -20px;
+}
+.comment__textarea {
+	width: 400px;
+	height: 100px;
+}
+
+/* Comments add end */
+
+
+/* Comment start */
+
+.comment {
+	margin-top: 50px;
+	border-top: 1px solid #22AFFF;
+}
+.comment__info {
+	padding-top: 15px;
+	font-size: 24px;
+	line-height: 28px;
+	display: flex;
+	flex-wrap: wrap;
+}
+.comment__text {
+	margin-top: 15px;
+	font-size: 24px;
+	line-height: 28px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* Comment end */

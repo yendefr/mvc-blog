@@ -109,7 +109,7 @@ class User extends ActiveRecordEntity
         $user->nickname = $userData['nickname'];
         $user->email = $userData['email'];
         $user->passwordHash = password_hash($userData['password'], PASSWORD_DEFAULT);
-        $user->isConfirmed = 0;
+        $user->isConfirmed = 1;
         $user->role = 'user';
         $user->authToken = sha1(random_bytes(100)) . sha1(random_bytes(100));
         $user->save();

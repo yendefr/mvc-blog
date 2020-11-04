@@ -32,7 +32,7 @@ class UsersController extends AbstractController
                     'code' => $code,
                 ]);
 
-                $this->view->renderHtml('users/signUpSuccessful.php');
+                $this->view->renderHtml('users/signIn.php');
                 return;
             }
         }
@@ -47,7 +47,7 @@ class UsersController extends AbstractController
             try {
                 $user = User::signIn($_POST);
                 UsersAuthService::createToken($user);
-                header('Location: /');
+                header('Location: '. $this->url);
                 exit();
             } catch (InvalidArgumentException $e) {
                 $this->view->renderHtml('users/signIn.php', ['error' => $e->getMessage()]);
@@ -62,7 +62,7 @@ class UsersController extends AbstractController
     {
         setcookie('token', '', 0, '/', '', false, true);
 
-        header( 'Location: login');
+        header( 'Location: ' . $this->url . 'login');
     }
 
     public function activate(int $userId, string $activationCode)
