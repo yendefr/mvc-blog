@@ -1,4 +1,9 @@
-<?php $url = (require __DIR__.'/../src/settings.php')['url']; ?>
+<?php
+$url = (require __DIR__.'/../src/settings.php')['url'];
+require __DIR__.'/../src/MyProject/Services/Parsedown.php';
+$parse = new Parsedown();
+$parse->setSafeMode(true);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>

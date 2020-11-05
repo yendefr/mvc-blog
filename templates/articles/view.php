@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="view-article__text">
-                  <span><?= $article->getText() ?></span>
+                  <?= $parse->parse($article->getText()) ?>
                 </div>
 
                 <div class="article__bar">

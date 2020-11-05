@@ -11,7 +11,7 @@
       </div>
 
       <div class="comment__text">
-        <span><?= $comment->getText() ?></span>
+          <?= $parse->parse($comment->getText()) ?>
       </div>
     </div>
   <?php endforeach; ?>

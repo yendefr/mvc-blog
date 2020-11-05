@@ -8,7 +8,7 @@
           <a href="articles/<?= $article->getId() ?>" class="title"><?= $article->getName() ?></a>
 
           <div class="article__text">
-            <span><?= $article->getPreview() ?></span>
+              <?= $parse->parse($article->getPreview()) ?>
           </div>
 
           <div class="article__info">
