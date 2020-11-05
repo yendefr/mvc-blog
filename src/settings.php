@@ -8,5 +8,5 @@ return [
         'user' => 'yularntggzhhdv',
         'password' => 'd9b0729bb6c66e972dd9d935e5b606058d5fdcb385873173b63b6bc645812900'
     ],
-    'url' => 'http://localhost/BlogHeroku/www/' // https://yendefr-blog.herokuapp.com/
+    'url' => 'https://yendefr-blog.herokuapp.com/' // https://yendefr-blog.herokuapp.com/
 ];
